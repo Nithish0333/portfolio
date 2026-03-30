@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#051018" />
+    <title>NITHISH.R - Certifications</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="dot dot-a"></span>
+          <span class="dot dot-b"></span>
+          <span class="dot dot-c"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">NITHISH.R</div>
+          <div class="brand-role">Backend Developer</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about" class="nav-link">About</a>
+        <a href="./index.html#security" class="nav-link">Security</a>
+        <a href="./index.html#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" href="./index.html">Back to Portfolio</a>
+      </div>
+    </header>
+
+    <main class="cert-page">
+      <div class="cert-hero">
+        <div>
+          <h1 class="cert-heading">Certifications</h1>
+          <p class="cert-sub">
+            This page is dedicated to certificates you want to highlight. Your Python Full Stack certificate is
+            wired from the portfolio.
+          </p>
+        </div>
+        <div>
+          <span class="footer-chip">Udemy • Python Full Stack</span>
+        </div>
+      </div>
+
+      <div class="cert-grid" id="python-fullstack">
+        <div class="panel panel-glass cert-card-big">
+          <div class="panel-head" style="border-bottom: none; padding: 0 0 10px;">
+            <div class="panel-title">Python Full Stack (Udemy)</div>
+            <div class="panel-subtitle">Certificate image</div>
+          </div>
+
+          <div class="cert-img-wrap">
+            <img src="./assets/certificates/python-fullstack-placeholder.svg" alt="Python Full Stack certificate image" />
+          </div>
+          <div class="hint" style="padding-left: 0; padding-right: 0;">
+            Replace the placeholder SVG with your real certificate image (same filename recommended).
+          </div>
+        </div>
+
+        <div class="panel panel-glass cert-card-big">
+          <div class="panel-head" style="border-bottom: none; padding: 0 0 10px;">
+            <div class="panel-title">How to add more</div>
+            <div class="panel-subtitle">Future-friendly</div>
+          </div>
+          <p class="prose" style="padding: 0; margin: 0;">
+            Add more certificates by creating new sections here and linking to them from the portfolio.
+            If you share certificate images, we can wire exact redirects the same way.
+          </p>
+          <div class="hr"></div>
+          <div class="hint" style="padding-left: 0; padding-right: 0;">
+            Tip: Keep images in <code>assets/certificates/</code> and reference them directly.
+          </div>
+          <div style="margin-top: 14px;">
+            <a class="btn btn-neon btn-wide" href="./index.html#about">Go back to About</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    // Smooth anchor navigation support for some browsers.
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  </script>
+</html>
+

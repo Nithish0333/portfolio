@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#051018" />
+    <meta name="description" content="Nithish.R | Backend Developer & Security" />
+    <title>NITHISH.R - Backend Developer & Security</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="dot dot-a"></span>
+          <span class="dot dot-b"></span>
+          <span class="dot dot-c"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">NITHISH.R</div>
+          <div class="brand-role">Backend Developer</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#security" class="nav-link">Security</a>
+        <a href="#terminal" class="nav-link">Terminal</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" href="https://github.com/Nithish033/" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <button class="btn btn-neon" type="button" id="btnDownloadResume" title="Resume link placeholder">
+          Resume
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="Intro">
+        <div class="hero-left">
+          <div class="kicker">
+            <span class="kicker-pill">Security-minded</span>
+            <span class="kicker-pill kicker-pill-muted">Backend + AppSec</span>
+          </div>
+          <h1 class="hero-title">
+            Building fast, secure systems.
+            <span class="accent">Neon-ready.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Backend engineer with a security focus. I work across APIs, authentication, threat modeling, and
+            production-grade hardening.
+          </p>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <div class="meta-label">Location</div>
+              <div class="meta-value">Coimbatore, India</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Email</div>
+              <div class="meta-value">
+                <a class="link" href="mailto:nithishh7639@gmail.com">nithishh7639@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a class="btn btn-neon" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact via Netlify Form</a>
+          </div>
+
+          <div class="hero-badges" aria-label="Security badges">
+            <span class="badge badge-security" data-badge="jwt">JWT</span>
+            <span class="badge badge-security" data-badge="oauth">OAuth</span>
+            <span class="badge badge-security" data-badge="encryption">Encryption</span>
+            <span class="badge badge-security" data-badge="owasp">OWASP</span>
+            <span class="badge badge-security" data-badge="siem">SIEM</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="panel panel-glass hero-panel">
+            <div class="panel-head">
+              <div class="panel-title">Live Security Monitor</div>
+              <div class="panel-subtitle">Simulated request telemetry</div>
+            </div>
+            <div class="monitor">
+              <div class="monitor-row">
+                <div class="chip chip-ok" id="chipStatus">READY</div>
+                <div class="chip chip-muted">
+                  <span class="spin" aria-hidden="true"></span>
+                  Threat-surface scan
+                </div>
+              </div>
+              <div class="monitor-bar">
+                <div class="monitor-bar-fill" id="monitorBarFill"></div>
+              </div>
+              <div class="monitor-actions">
+                <button class="btn btn-small btn-neon" type="button" id="btnSimulateOnce">Simulate Request</button>
+                <button class="btn btn-small btn-ghost" type="button" id="btnToggleAuto">Auto: ON</button>
+              </div>
+              <ul class="log" id="logList" aria-label="Live logs"></ul>
+            </div>
+          </div>
+
+          <div class="panel panel-glass quick-panel">
+            <div class="panel-head">
+              <div class="panel-title">Core Stack</div>
+              <div class="panel-subtitle">Backend + Security tools</div>
+            </div>
+            <div class="tag-cloud" id="tagCloud" aria-label="Skill tags"></div>
+            <div class="hint">
+              Tip: open the <a class="link" href="#terminal">Terminal</a> section and run <code>whoami</code> or
+              <code>ls projects</code>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head">
+          <h2 class="section-title">About</h2>
+          <div class="section-kicker">Backend developer | Security</div>
+        </div>
+        <div class="grid-2">
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">What I do</div>
+              <div class="panel-subtitle">Production-focused engineering</div>
+            </div>
+            <p class="prose">
+              I design and implement secure backend services: authentication flows, authorization checks,
+              API validation, encryption boundaries, and monitoring. I also use security tooling to proactively
+              reduce risk across the SDLC.
+            </p>
+            <div class="hr"></div>
+            <div class="two-cols">
+              <div>
+                <div class="micro-title">Security mindset</div>
+                <div class="micro-list">
+                  <span class="micro-bullet">Threat modeling</span>
+                  <span class="micro-bullet">OWASP-oriented fixes</span>
+                  <span class="micro-bullet">Attack-surface review</span>
+                </div>
+              </div>
+              <div>
+                <div class="micro-title">Backend delivery</div>
+                <div class="micro-list">
+                  <span class="micro-bullet">REST APIs</span>
+                  <span class="micro-bullet">Containerized deployments</span>
+                  <span class="micro-bullet">Cloud-ready architecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Certifications</div>
+              <div class="panel-subtitle">Redirect to certificate image</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-left">
+                <div class="cert-title">Python Full Stack (Udemy)</div>
+                <div class="cert-meta">Click to open certificate image</div>
+                <a class="btn btn-neon btn-wide" href="./certificates.html#python-fullstack">View Certificate</a>
+              </div>
+              <div class="cert-right" aria-hidden="true">
+                <div class="cert-badge">Udemy</div>
+              </div>
+            </div>
+
+            <div class="hint">
+              More certifications can be added later. For now, your Python Full Stack certificate is wired to a dedicated page.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-head">
+          <h2 class="section-title">Projects</h2>
+          <div class="section-kicker">Terminal-friendly, security-aware</div>
+        </div>
+
+        <div class="project-grid" role="list" aria-label="Project list">
+          <article class="project-card" role="listitem" data-project="devarena">
+            <div class="project-head">
+              <div class="project-title">DevArena</div>
+              <div class="project-stamp">API + Auth</div>
+            </div>
+            <p class="project-desc">Developer community experiences with secure authentication and role-based access.</p>
+            <div class="project-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">JWT</span>
+              <span class="tag">OAuth</span>
+              <span class="tag">Security Logging</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-small btn-neon" type="button" data-open-project="devarena">Details</button>
+              <button class="btn btn-small btn-ghost" type="button" disabled title="Links can be added later">Demo</button>
+            </div>
+          </article>
+
+          <article class="project-card" role="listitem" data-project="cookicrave">
+            <div class="project-head">
+              <div class="project-title">CookiCrave</div>
+              <div class="project-stamp">Performance</div>
+            </div>
+            <p class="project-desc">Food discovery and ordering flows with encryption boundaries and safe request handling.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">OWASP</span>
+              <span class="tag">Rate Limits</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-small btn-neon" type="button" data-open-project="cookicrave">Details</button>
+              <button class="btn btn-small btn-ghost" type="button" disabled title="Links can be added later">Demo</button>
+            </div>
+          </article>
+
+          <article class="project-card" role="listitem" data-project="jarvis">
+            <div class="project-head">
+              <div class="project-title">Project Jarvis</div>
+              <div class="project-stamp">Automation</div>
+            </div>
+            <p class="project-desc">Security assistant workflows: simulated scanning, alerting, and incident-friendly outputs.</p>
+            <div class="project-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">AWS</span>
+              <span class="tag">SIEM</span>
+              <span class="tag">Burp Suite</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-small btn-neon" type="button" data-open-project="jarvis">Details</button>
+              <button class="btn btn-small btn-ghost" type="button" disabled title="Links can be added later">Demo</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="hint">
+          Want more projects? Add more cards later. The Terminal `ls projects` command will auto-update.
+        </div>
+      </section>
+
+      <section id="security" class="section">
+        <div class="section-head">
+          <h2 class="section-title">Security</h2>
+          <div class="section-kicker">Badges, practices, and threat-aware engineering</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Auth & Sessions</div>
+              <div class="panel-subtitle">JWT + OAuth</div>
+            </div>
+            <div class="badge-grid">
+              <div class="big-badge" data-badge="jwt">
+                <div class="big-badge-title">JWT</div>
+                <div class="big-badge-desc">Token lifecycle + claim hardening</div>
+              </div>
+              <div class="big-badge" data-badge="oauth">
+                <div class="big-badge-title">OAuth</div>
+                <div class="big-badge-desc">Scopes + least privilege</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Data Protection</div>
+              <div class="panel-subtitle">Encryption boundaries</div>
+            </div>
+            <div class="badge-grid">
+              <div class="big-badge" data-badge="encryption">
+                <div class="big-badge-title">Encryption</div>
+                <div class="big-badge-desc">At-rest and in-transit discipline</div>
+              </div>
+              <div class="big-badge" data-badge="owasp">
+                <div class="big-badge-title">OWASP</div>
+                <div class="big-badge-desc">Input validation and secure defaults</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Detection & Monitoring</div>
+              <div class="panel-subtitle">SIEM-style visibility</div>
+            </div>
+            <div class="badge-grid">
+              <div class="big-badge" data-badge="siem">
+                <div class="big-badge-title">SIEM</div>
+                <div class="big-badge-desc">Audit-friendly, incident-ready logs</div>
+              </div>
+              <div class="big-badge" data-badge="burp">
+                <div class="big-badge-title">Burp Suite</div>
+                <div class="big-badge-desc">Manual testing + workflow improvements</div>
+              </div>
+            </div>
+            <div class="hr"></div>
+            <div class="hint">
+              Security badges are interactive. Hover or click them for quick explanations.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="terminal" class="section">
+        <div class="section-head">
+          <h2 class="section-title">Terminal</h2>
+          <div class="section-kicker">Fake shell: whoami, ls projects, open & more</div>
+        </div>
+
+        <div class="terminal-wrap">
+          <div class="terminal-panel panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Secure Shell</div>
+              <div class="panel-subtitle">Try: <code>whoami</code>, <code>ls projects</code>, <code>open DevArena</code></div>
+            </div>
+
+            <div class="terminal" role="application" aria-label="Fake terminal">
+              <div class="terminal-output" id="terminalOutput" aria-live="polite"></div>
+              <div class="terminal-input-row">
+                <span class="prompt" id="terminalPrompt" aria-hidden="true">nithish@portfolio:~$</span>
+                <input
+                  id="terminalInput"
+                  class="terminal-input"
+                  type="text"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-label="Terminal command"
+                />
+                <button class="terminal-run" type="button" id="terminalRunBtn">Run</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="terminal-side panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Command Cheatsheet</div>
+              <div class="panel-subtitle">Fast actions</div>
+            </div>
+            <div class="cheats">
+              <button class="btn btn-small btn-neon" type="button" data-terminal-cmd="whoami">whoami</button>
+              <button class="btn btn-small btn-ghost" type="button" data-terminal-cmd="ls projects">ls projects</button>
+              <button class="btn btn-small btn-ghost" type="button" data-terminal-cmd="skills">skills</button>
+              <button class="btn btn-small btn-ghost" type="button" data-terminal-cmd="help">help</button>
+              <button class="btn btn-small btn-ghost" type="button" data-terminal-cmd="clear">clear</button>
+            </div>
+            <div class="hr"></div>
+            <div class="hint">
+              Security tip: command outputs never request real data.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <div class="section-kicker">Netlify form (no backend needed)</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Send a message</div>
+              <div class="panel-subtitle">I reply quickly</div>
+            </div>
+
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              class="form"
+              id="contactForm"
+              autocomplete="on"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <input class="sr-only" type="text" name="bot-field" tabIndex="-1" autocomplete="off" />
+
+              <div class="form-grid">
+                <label class="field">
+                  <span class="label">Your Name</span>
+                  <input class="input" type="text" name="name" required />
+                </label>
+                <label class="field">
+                  <span class="label">Email</span>
+                  <input class="input" type="email" name="email" required />
+                </label>
+              </div>
+              <label class="field">
+                <span class="label">Message</span>
+                <textarea class="textarea" name="message" rows="5" required></textarea>
+              </label>
+              <div class="form-actions">
+                <button class="btn btn-neon btn-wide" type="submit">Send</button>
+              </div>
+              <div class="form-hint">
+                By sending, you agree to be contacted back via email.
+              </div>
+            </form>
+
+            <div class="toast" id="toast" role="status" aria-live="polite">
+              Message sent successfully.
+            </div>
+          </div>
+
+          <div class="panel panel-glass">
+            <div class="panel-head">
+              <div class="panel-title">Quick Links</div>
+              <div class="panel-subtitle">Connect & verify</div>
+            </div>
+
+            <div class="link-grid">
+              <a class="link-card" href="https://github.com/Nithish033/" target="_blank" rel="noreferrer noopener">
+                <div class="link-card-title">GitHub</div>
+                <div class="link-card-sub">Security-aware backend repos</div>
+              </a>
+              <a class="link-card" href="mailto:nithishh7639@gmail.com">
+                <div class="link-card-title">Email</div>
+                <div class="link-card-sub">nithishh7639@gmail.com</div>
+              </a>
+              <a class="link-card" href="./certificates.html#python-fullstack">
+                <div class="link-card-title">Udemy Certificate</div>
+                <div class="link-card-sub">Python Full Stack</div>
+              </a>
+            </div>
+
+            <div class="hr"></div>
+            <div class="prose-small">
+              Hosting on Netlify is straightforward: this site is static (no React/Vue build required).
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <div class="footer-brand">NITHISH.R</div>
+        <div class="footer-sub">Backend Developer & Security</div>
+      </div>
+      <div class="footer-right">
+        <span class="footer-chip">Dark premium</span>
+        <span class="footer-chip">Neon terminal UI</span>
+        <span class="footer-chip">Netlify Form</span>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-label="Project details" hidden>
+      <div class="modal-head">
+        <div class="modal-title" id="modalProjectTitle">Project</div>
+        <button class="icon-btn" type="button" id="modalCloseBtn" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-meta" id="modalProjectStamp"></div>
+        <p class="modal-desc" id="modalProjectDesc"></p>
+        <div class="modal-tags" id="modalProjectTags"></div>
+        <div class="modal-links" id="modalProjectLinks"></div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>NITHISH.R | Backend Developer & Security</title>
+  <meta name="description" content="Backend Developer & Security. Building secure, scalable systems using Node.js, Python, Django, Docker, AWS, Nginx, and security best practices." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='25%25'%3E%3Cstop offset='0%25' stop-color='%236ee7ff'/%3E%3Cstop offset='55%25' stop-color='%230a2b3a'/%3E%3Cstop offset='100%25' stop-color='%23010b12'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='url(%23g)'/%3E%3Cpath d='M16 45V19h7c4 0 6 2 6 5 0 2-1 3-2 4 2 1 3 2 3 5 0 5-3 8-8 8h-6Zm6-15h1c2 0 3-1 3-2s-1-2-3-2h-1v4Zm0 10h2c2 0 4-1 4-3 0-2-1-3-4-3h-2v6Z' fill='%23b9f6ff'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+
+  <meta property="og:title" content="NITHISH.R | Backend Developer & Security" />
+  <meta property="og:description" content="Secure backend systems with Node.js, Python, Django, Docker, AWS, Nginx and security engineering mindset." />
+  <meta property="og:type" content="website" />
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="bg" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="noise"></div>
+    <div class="orbs">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <a class="brand-link" href="#home" aria-label="Go to top">NITHISH.R</a>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#about" data-nav="about">About</a>
+        <a class="nav-link" href="#skills" data-nav="skills">Skills</a>
+        <a class="nav-link" href="#projects" data-nav="projects">Projects</a>
+        <a class="nav-link" href="#certifications" data-nav="certifications">Certifications</a>
+        <a class="nav-link" href="#contact" data-nav="contact">Contact</a>
+      </nav>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-label">Menu</span>
+      </button>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
+      <a class="mobile-nav-link" href="#about">About</a>
+      <a class="mobile-nav-link" href="#skills">Skills</a>
+      <a class="mobile-nav-link" href="#projects">Projects</a>
+      <a class="mobile-nav-link" href="#certifications">Certifications</a>
+      <a class="mobile-nav-link" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="pill">
+            <span class="pill-glow" aria-hidden="true"></span>
+            Backend Developer & Security
+          </div>
+
+          <h1 class="hero-title">
+            Building secure systems with a defense mindset.
+          </h1>
+
+          <p class="hero-subtitle">
+            I create scalable backend solutions and harden them with practical security engineering.
+            Technologies: Node.js, Python, Django, Docker, AWS, Nginx, OWASP, Burp Suite, SIEM.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">Explore Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Coimbatore, India</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">GitHub</span>
+              <a class="meta-value meta-link" href="https://github.com/Nithish033/" target="_blank" rel="noopener">github.com/Nithish033</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profile summary">
+          <div class="profile">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img" aria-label="Decorative avatar">
+                <defs>
+                  <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#6ee7ff" />
+                    <stop offset="0.55" stop-color="#8b5cf6" />
+                    <stop offset="1" stop-color="#22c55e" />
+                  </linearGradient>
+                </defs>
+                <circle cx="60" cy="60" r="50" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" />
+                <path d="M35 78c8-15 12-17 25-17s17 2 25 17" fill="none" stroke="url(#av)" stroke-width="6" stroke-linecap="round"/>
+                <path d="M48 55c0-8 6-14 12-14s12 6 12 14" fill="none" stroke="url(#av)" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="60" cy="58" r="3.5" fill="#b9f6ff" />
+              </svg>
+            </div>
+
+            <div class="profile-lines">
+              <div class="line">
+                <span class="k">Focus</span>
+                <span class="v">Security-first backend</span>
+              </div>
+              <div class="line">
+                <span class="k">Mindset</span>
+                <span class="v">Threat modeling + secure SDLC</span>
+              </div>
+              <div class="line">
+                <span class="k">Stack</span>
+                <span class="v">Node.js • Python • Django • Docker</span>
+              </div>
+            </div>
+
+            <div class="badge-row" aria-label="Security badges">
+              <span class="badge">OWASP</span>
+              <span class="badge">Burp Suite</span>
+              <span class="badge">SIEM</span>
+              <span class="badge">Hardening</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div class="reveal">
+          <h2 class="section-title">About</h2>
+          <p class="section-lead">
+            I’m <strong>NITHISH.R</strong>, a backend developer with a strong security background.
+            I love building services that are reliable in production and resilient against common attack paths.
+          </p>
+          <p class="section-text">
+            My approach blends engineering fundamentals with practical security: safe-by-design APIs, secure deployment patterns,
+            and real-world testing with tools like Burp Suite.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">Secure APIs</div>
+              <div class="stat-sub">Auth • validation • OWASP</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Reliable delivery</div>
+              <div class="stat-sub">Docker • AWS • CI mindset</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Observability</div>
+              <div class="stat-sub">SIEM • logs • alerts</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal panel">
+          <h3 class="panel-title">What I build</h3>
+          <div class="panel-list">
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Backend services</strong>
+                <span>APIs that scale and remain maintainable.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Secure deployments</strong>
+                <span>Nginx + AWS patterns with hardened configs.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Security testing</strong>
+                <span>OWASP checks, Burp Suite workflow, and fixes.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-actions">
+            <a class="btn btn-tertiary" href="mailto:nithishh7639@gmail.com">Email</a>
+            <button class="btn btn-tertiary copy-email" type="button" data-email="nithishh7639@gmail.com">
+              Copy Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Skills</h2>
+        <p class="section-lead reveal">
+          A compact security + backend toolkit. Replace or edit these chips anytime.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-col panel reveal">
+            <h3 class="panel-title">Backend</h3>
+            <div class="chips">
+              <span class="chip">Node.js</span>
+              <span class="chip">Python</span>
+              <span class="chip">Django</span>
+            </div>
+          </div>
+
+          <div class="skill-col panel reveal">
+            <h3 class="panel-title">DevOps / Cloud</h3>
+            <div class="chips">
+              <span class="chip">Docker</span>
+              <span class="chip">AWS</span>
+              <span class="chip">Nginx</span>
+            </div>
+          </div>
+
+          <div class="skill-col panel reveal">
+            <h3 class="panel-title">Security Engineering</h3>
+            <div class="chips">
+              <span class="chip chip-hot">OWASP</span>
+              <span class="chip chip-hot">Burp Suite</span>
+              <span class="chip chip-hot">SIEM</span>
+            </div>
+          </div>
+
+          <div class="skill-col panel reveal">
+            <h3 class="panel-title">Security Mindset</h3>
+            <div class="chips">
+              <span class="chip">Threat modeling</span>
+              <span class="chip">Secure SDLC</span>
+              <span class="chip">Input validation</span>
+              <span class="chip">Hardening</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-lead reveal">
+          Three projects are pre-filled. Add your GitHub/live links later by replacing the disabled buttons.
+        </p>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-head">
+              <h3 class="card-title">DevArena</h3>
+              <span class="card-badge">Backend • Security</span>
+            </div>
+            <p class="card-desc">
+              A platform-style project designed to showcase secure backend patterns and clean service architecture.
+              (Replace this description with your real one.)
+            </p>
+            <div class="tag-row">
+              <span class="tag">Node.js</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Nginx</span>
+              <span class="tag">OWASP</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-secondary" type="button" disabled title="Add link later">Source</button>
+              <button class="btn btn-tertiary" type="button" disabled title="Add link later">Live</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-head">
+              <h3 class="card-title">CookiCrave</h3>
+              <span class="card-badge">Django • APIs</span>
+            </div>
+            <p class="card-desc">
+              Food/ordering themed project with API-first backend design. Focus on validation, auth flow, and reliability.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Burp Suite</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-secondary" type="button" disabled title="Add link later">Source</button>
+              <button class="btn btn-tertiary" type="button" disabled title="Add link later">Live</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-head">
+              <h3 class="card-title">Project Jarvis</h3>
+              <span class="card-badge">Security • Automation</span>
+            </div>
+            <p class="card-desc">
+              A productivity/security helper concept built around backend automation. Add your real feature set later.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Node.js</span>
+              <span class="tag">SIEM</span>
+              <span class="tag">Security Logging</span>
+              <span class="tag">Hardening</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-secondary" type="button" disabled title="Add link later">Source</button>
+              <button class="btn btn-tertiary" type="button" disabled title="Add link later">Live</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container grid-2">
+        <div class="reveal">
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-lead">
+            Proof points from learning. Add course certificate links when you’re ready.
+          </p>
+
+          <div class="timeline">
+            <div class="t-item reveal">
+              <span class="t-dot" aria-hidden="true"></span>
+              <div class="t-body">
+                <div class="t-title">Udemy | Python Full Stack</div>
+                <div class="t-sub">Backend fundamentals, APIs, and full-stack implementation.</div>
+              </div>
+            </div>
+            <div class="t-item reveal">
+              <span class="t-dot" aria-hidden="true"></span>
+              <div class="t-body">
+                <div class="t-title">Add more certifications</div>
+                <div class="t-sub">Update this section with OWASP / security courses and year.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal panel">
+          <h3 class="panel-title">Security Notes</h3>
+          <p class="section-text">
+            When sharing projects, include what you tested (e.g., OWASP categories, Burp Suite workflow) and what you improved.
+            That single detail boosts credibility a lot.
+          </p>
+          <div class="panel-list">
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>OWASP alignment</strong>
+                <span>Map vulnerabilities to prevention steps.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Testing workflow</strong>
+                <span>Document what you scanned and fixed.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Production hardening</strong>
+                <span>Headers, configs, least privilege, secrets hygiene.</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-actions">
+            <a class="btn btn-primary" href="#contact">Work With Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container grid-2">
+        <div class="reveal">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-lead">
+            Want to collaborate? Send a message using the form (Netlify Forms) or email directly.
+          </p>
+
+          <div class="contact-quick">
+            <a class="contact-pill" href="mailto:nithishh7639@gmail.com">nithishh7639@gmail.com</a>
+            <a class="contact-pill" href="https://github.com/Nithish033/" target="_blank" rel="noopener">GitHub</a>
+          </div>
+
+          <div class="security-hint">
+            <strong>Privacy:</strong> No passwords collected. This page is static.
+          </div>
+        </div>
+
+        <div class="reveal panel">
+          <form name="contact" method="post" data-netlify="true" class="form">
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" value="" autocomplete="off" />
+
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="Project / role / question" required />
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <button class="btn btn-secondary" type="button" data-email="nithishh7639@gmail.com" id="fallbackMail">
+                Open Mail
+              </button>
+            </div>
+
+            <p class="form-note">
+              By sending, you agree to be contacted back. (Netlify handles form delivery.)
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <div class="foot-brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>NITHISH.R</span>
+        </div>
+        <div class="foot-sub">Backend Developer & Security. Built for Netlify.</div>
+      </div>
+      <div class="foot-right">
+        <a class="foot-link" href="#home">Back to top</a>
+        <span class="foot-sep" aria-hidden="true">•</span>
+        <a class="foot-link" href="mailto:nithishh7639@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
