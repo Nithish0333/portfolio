@@ -148,10 +148,17 @@
     });
   }
 
-  // 3D Tilt Effect for Cards and Panels
+  // 3D Tilt Effect for Cards and Panels (Optimized)
   const tiltElements = document.querySelectorAll('.card, .panel');
   
   for (const el of tiltElements) {
+    let frameId = null;
+    let targetRotateX = 0;
+    let targetRotateY = 0;
+    
+    el.style.cursor = 'pointer';
+    el.style.willChange = 'transform';
+    
     el.addEventListener('mousemove', (e) => {
       if (prefersReduced) return;
       
@@ -162,14 +169,21 @@
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = ((y - centerY) / centerY) * 8;
-      const rotateY = ((centerX - x) / centerX) * 8;
+      targetRotateX = ((y - centerY) / centerY) * 6;
+      targetRotateY = ((centerX - x) / centerX) * 6;
       
-      el.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+      if (frameId) cancelAnimationFrame(frameId);
+      
+      frameId = requestAnimationFrame(() => {
+        el.style.transform = `perspective(1000px) rotateX(${targetRotateX}deg) rotateY(${targetRotateY}deg) translateZ(8px)`;
+      });
     });
     
     el.addEventListener('mouseleave', () => {
+      if (frameId) cancelAnimationFrame(frameId);
       el.style.transform = '';
+      targetRotateX = 0;
+      targetRotateY = 0;
     });
   }
 
