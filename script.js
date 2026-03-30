@@ -48,7 +48,7 @@
   }
 
   // Active section highlighting
-  const sectionIds = ['about', 'skills', 'projects', 'certifications', 'contact'];
+  const sectionIds = ['about', 'skills', 'projects', 'certifications', 'terminal', 'contact'];
   const sectionEls = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -145,6 +145,157 @@
     fallbackMail.addEventListener('click', () => {
       const email = fallbackMail.getAttribute('data-email') || 'nithishh7639@gmail.com';
       window.location.href = `mailto:${email}`;
+    });
+  }
+
+  // 3D Tilt Effect for Cards and Panels
+  const tiltElements = document.querySelectorAll('.card, .panel');
+  
+  for (const el of tiltElements) {
+    el.addEventListener('mousemove', (e) => {
+      if (prefersReduced) return;
+      
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * 8;
+      const rotateY = ((centerX - x) / centerX) * 8;
+      
+      el.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  }
+
+  // Terminal Commands Handler
+  const terminalInput = document.getElementById('terminalInput');
+  const terminalOutput = document.getElementById('terminalOutput');
+
+  const commands = {
+    help: `Available commands:
+• help - Display this message
+• whoami - Show profile info  
+• skills - List technical skills
+• projects - Display projects
+• certifications - Show credentials
+• contact - Get contact info
+• clear - Clear terminal`,
+
+    whoami: `nithish@portfolio:~$ whoami
+Backend Developer & Security Specialist
+Location: Coimbatore, India
+Email: nithishh7639@gmail.com
+GitHub: github.com/Nithish033
+Expertise: Node.js, Python, Django, Docker, AWS, Security`,
+
+    skills: `nithish@portfolio:~$ skills
+[Backend]
+  • Node.js / Express
+  • Python / Django
+  • REST APIs
+  • Microservices
+
+[DevOps & Cloud]
+  • Docker & Containers
+  • AWS Services
+  • Nginx Configuration
+  • CI/CD Pipelines
+
+[Security]
+  • OWASP Top 10
+  • Burp Suite
+  • Threat Modeling
+  • JWT & OAuth
+  • SIEM & Logging`,
+
+    projects: `nithish@portfolio:~$ projects
+1. DevArena - API + Auth
+   Secure backend platform with JWT & OAuth flows
+   
+2. CookiCrave - Django APIs
+   Food discovery system with validation & hardening
+   
+3. Project Jarvis - Security Automation
+   Incident response & monitoring workflows`,
+
+    certifications: `nithish@portfolio:~$ certifications
+✓ Python Full Stack Development (Udemy)
+  Comprehensive backend & full-stack fundamentals
+  
+Coming Soon:
+• OWASP Security Fundamentals
+• AWS Security Specialist
+• Certified Ethical Hacker (CEH)`,
+
+    contact: `nithish@portfolio:~$ contact
+Email: nithishh7639@gmail.com
+GitHub: https://github.com/Nithish033
+Discord: Available on request
+LinkedIn: Let's connect!
+Timezone: IST (UTC+5:30)
+
+Response time: Usually within 24 hours`,
+
+    clear: null
+  };
+
+  function addTerminalLine(command, result) {
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    line.innerHTML = `
+      <span class="terminal-prompt">nithish@portfolio:~$</span>
+      <span class="terminal-command">${escapeHtml(command)}</span>
+    `;
+    terminalOutput.appendChild(line);
+
+    if (result) {
+      const resultDiv = document.createElement('div');
+      resultDiv.className = 'terminal-result';
+      resultDiv.textContent = result;
+      terminalOutput.appendChild(resultDiv);
+    }
+
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  function escapeHtml(text) {
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, (m) => map[m]);
+  }
+
+  function executeCommand(cmd) {
+    const trimmed = cmd.trim().toLowerCase();
+    
+    if (trimmed === 'clear') {
+      terminalOutput.innerHTML = '';
+      return;
+    }
+
+    const result = commands[trimmed] || `Command not found: ${cmd}\nType 'help' for available commands`;
+    addTerminalLine(cmd, result);
+  }
+
+  if (terminalInput) {
+    terminalInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const cmd = terminalInput.value;
+        if (cmd.trim()) {
+          executeCommand(cmd);
+          terminalInput.value = '';
+        }
+      }
     });
   }
 })();

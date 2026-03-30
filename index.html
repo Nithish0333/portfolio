@@ -45,6 +45,7 @@
         <a class="nav-link" href="#skills" data-nav="skills">Skills</a>
         <a class="nav-link" href="#projects" data-nav="projects">Projects</a>
         <a class="nav-link" href="#certifications" data-nav="certifications">Certifications</a>
+        <a class="nav-link" href="#terminal" data-nav="terminal">Terminal</a>
         <a class="nav-link" href="#contact" data-nav="contact">Contact</a>
       </nav>
 
@@ -384,6 +385,50 @@
           </div>
           <div class="panel-actions">
             <a class="btn btn-primary" href="#contact">Work With Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terminal" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Hacker Terminal</h2>
+        <p class="section-lead reveal">
+          Execute commands to explore my skills and projects. Try: <code>help</code>, <code>whoami</code>, <code>skills</code>, <code>projects</code>
+        </p>
+
+        <div class="terminal-container reveal">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-title">nithish@portfolio:~$</span>
+              <div class="terminal-buttons">
+                <span class="terminal-btn"></span>
+                <span class="terminal-btn"></span>
+                <span class="terminal-btn"></span>
+              </div>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-output" id="terminalOutput">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">nithish@portfolio:~$</span>
+                  <span class="terminal-command">help</span>
+                </div>
+                <div class="terminal-result">
+Available commands:<br>
+• help - Display this message<br>
+• whoami - Show profile info<br>
+• skills - List technical skills<br>
+• projects - Display projects<br>
+• certifications - Show credentials<br>
+• contact - Get contact info<br>
+• clear - Clear terminal<br>
+                </div>
+              </div>
+              <div class="terminal-input-wrapper">
+                <span class="terminal-prompt">nithish@portfolio:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput" placeholder="Enter command..." autocomplete="off" spellcheck="false" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
