@@ -312,5 +312,113 @@ Response time: Usually within 24 hours`,
       }
     });
   }
+
+  // Arc Reactor 3D Animation
+  if (typeof THREE !== 'undefined') {
+    const container = document.getElementById('arcReactorContainer');
+    if (container) {
+      const width = container.clientWidth || 300;
+      const height = container.clientHeight || 300;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+      renderer.setSize(width, height);
+      renderer.setClearColor(0x000000, 0);
+      container.appendChild(renderer.domElement);
+
+      camera.position.z = 3;
+
+      // Core sphere with glowing material
+      const coreGeometry = new THREE.SphereGeometry(0.6, 64, 64);
+      const coreMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00ff88,
+        emissive: 0x00ff88,
+        emissiveIntensity: 1.2
+      });
+      const core = new THREE.Mesh(coreGeometry, coreMaterial);
+      scene.add(core);
+
+      // Glow effect for core
+      const glowGeometry = new THREE.SphereGeometry(0.65, 32, 32);
+      const glowMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00ff88,
+        transparent: true,
+        opacity: 0.3,
+        side: THREE.BackSide
+      });
+      const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+      scene.add(glow);
+
+      // Energy rings
+      const rings = [];
+      const ringCount = 3;
+      for (let i = 0; i < ringCount; i++) {
+        const ringGeometry = new THREE.TorusGeometry(1.2 + i * 0.4, 0.08, 32, 256);
+        const ringMaterial = new THREE.MeshBasicMaterial({
+          color: i === 0 ? 0x00ff88 : i === 1 ? 0x00ffaa : 0x00ddff,
+          emissive: i === 0 ? 0x00ff88 : i === 1 ? 0x00ffaa : 0x00ddff,
+          emissiveIntensity: i === 0 ? 1.5 : 1.2,
+          wireframe: false
+        });
+        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+        ring.rotation.x = Math.PI / 4 + i * 0.3;
+        ring.rotation.y = i * 0.5;
+        scene.add(ring);
+        rings.push({ mesh: ring, speed: 0.005 + i * 0.002, direction: i % 2 === 0 ? 1 : -1 });
+      }
+
+      // Light source
+      const light = new THREE.PointLight(0x00ff88, 1.5, 100);
+      light.position.set(5, 5, 5);
+      scene.add(light);
+
+      // Ambient light
+      const ambientLight = new THREE.AmbientLight(0x00ff88, 0.3);
+      scene.add(ambientLight);
+
+      // Animation loop
+      let animationId;
+      function animate() {
+        animationId = requestAnimationFrame(animate);
+
+        // Rotate core
+        core.rotation.x += 0.001;
+        core.rotation.y += 0.002;
+        glow.rotation.x = core.rotation.x;
+        glow.rotation.y = core.rotation.y;
+
+        // Rotate rings with pulsing
+        rings.forEach((ring, index) => {
+          ring.mesh.rotation.x += ring.speed * ring.direction;
+          ring.mesh.rotation.y += ring.speed * ring.direction * 0.5;
+          
+          // Pulsing effect
+          const pulse = Math.sin(Date.now() * 0.001 + index) * 0.15 + 0.85;
+          ring.mesh.scale.set(pulse, pulse, pulse);
+        });
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        const newWidth = container.clientWidth || 300;
+        const newHeight = container.clientHeight || 300;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      });
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        cancelAnimationFrame(animationId);
+        renderer.dispose();
+      });
+    }
+  }
 })();
 
